@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دراسة جدوى استثمارية تفاعلية - شركة أفق الزعيم</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0b132b',
+                            900: '#070a13',
+                            950: '#03050a'
+                        },
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #070a13 0%, #0b132b 50%, #051923 100%);
+            color: #f1f5f9;
+            min-height: 100vh;
+        }
+        .glass-card {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1rem;
+        }
+        .glass-card-active {
+            border-color: #10b981;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+        .glow-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+            transform: translateY(-2px);
+        }
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .glass-card {
+                background: white !important;
+                color: black !important;
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+            }
+            .tab-content {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto space-y-6">
+
+        <!-- HEADER BANNER -->
+        <header class="glass-card p-6 md:p-8 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 relative z-10">
+                <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                        <span class="px-3 py-1 text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">
+                            دراسة جدوى استثمارية شاملة
+                        </span>
+                        <span class="px-3 py-1 text-xs font-bold bg-gold-500/20 text-gold-400 border border-gold-500/30 rounded-full">
+                            نموذج التجارة المزدوجة Hybrid Retail
+                        </span>
+                    </div>
+                    <h1 class="text-2xl md:text-4xl font-extrabold text-white tracking-wide">
+                        مشروع فتح مستودع كمعرض تجاري للزوار + متجر إلكتروني احترافي
+                    </h1>
+                    <p class="text-gray-400 text-sm md:text-base">
+                        المُعدّة لصالح الأستاذ: <span class="text-white font-bold">عبدالباسط أبو أماسي</span> (مدير شركة أفق الزعيم) — بإشراف مطور الأعمال: <span class="text-emerald-400 font-bold">رمزي الجلال</span>
+                    </p>
+                </div>
+
+                <div class="flex items-center gap-3 no-print">
+                    <button onclick="window.print()" class="glow-button px-5 py-3 bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-extrabold rounded-xl flex items-center gap-2 text-sm">
+                        <i data-lucide="printer" class="w-4 h-4"></i>
+                        تصدير / طباعة التقرير (PDF)
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- STATS HIGHLIGHTS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="glass-card p-5 space-y-2">
+                <div class="flex justify-between items-center text-gray-400 text-sm">
+                    <span>رأس المال المستهدف</span>
+                    <i data-lucide="wallet" class="w-5 h-5 text-emerald-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white" id="stat-capital">700,000 ر.س</div>
+                <div class="text-xs text-emerald-400 font-semibold flex items-center gap-1">
+                    <i data-lucide="check-circle" class="w-3 h-3"></i> خيار الميزانية المتوسطة (الموصى به)
+                </div>
+            </div>
+
+            <div class="glass-card p-5 space-y-2">
+                <div class="flex justify-between items-center text-gray-400 text-sm">
+                    <span>المبيعات التقديرية (سنوياً)</span>
+                    <i data-lucide="trending-up" class="w-5 h-5 text-gold-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white" id="stat-sales">2,200,000 ر.س</div>
+                <div class="text-xs text-gray-400">معرض ميداني + مبيعات رقمية</div>
+            </div>
+
+            <div class="glass-card p-5 space-y-2">
+                <div class="flex justify-between items-center text-gray-400 text-sm">
+                    <span>صافي الأرباح المتوقعة</span>
+                    <i data-lucide="coins" class="w-5 h-5 text-emerald-400"></i>
+                </div>
+                <div class="text-2xl font-black text-emerald-400" id="stat-profit">584,500 ر.س</div>
+                <div class="text-xs text-emerald-400 font-semibold" id="stat-margin">متوسط هامش أرباح 24.2%</div>
+            </div>
+
+            <div class="glass-card p-5 space-y-2">
+                <div class="flex justify-between items-center text-gray-400 text-sm">
+                    <span>استرداد رأس المال (ROI)</span>
+                    <i data-lucide="clock" class="w-5 h-5 text-sky-400"></i>
+                </div>
+                <div class="text-2xl font-black text-white">14 - 18 شهراً</div>
+                <div class="text-xs text-sky-400">معدل استرداد ممتاز جداً</div>
+            </div>
+        </div>
+
+        <!-- NAVIGATION TABS -->
+        <div class="flex overflow-x-auto gap-2 p-2 glass-card no-print">
+            <button onclick="switchTab('summary')" id="tab-summary" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-emerald-500 text-slate-950">
+                <i data-lucide="file-text" class="w-4 h-4 inline ml-1"></i> الملخص والاستراتيجية
+            </button>
+            <button onclick="switchTab('options')" id="tab-options" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all text-gray-300 hover:text-white hover:bg-white/5">
+                <i data-lucide="store" class="w-4 h-4 inline ml-1"></i> خيارات النشاط
+            </button>
+            <button onclick="switchTab('legal')" id="tab-legal" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all text-gray-300 hover:text-white hover:bg-white/5">
+                <i data-lucide="shield-check" class="w-4 h-4 inline ml-1"></i> التراخيص والمخاطر
+            </button>
+            <button onclick="switchTab('roadmap')" id="tab-roadmap" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all text-gray-300 hover:text-white hover:bg-white/5">
+                <i data-lucide="layers" class="w-4 h-4 inline ml-1"></i> التجهيز الميداني والتقني
+            </button>
+            <button onclick="switchTab('financial')" id="tab-financial" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all text-gray-300 hover:text-white hover:bg-white/5">
+                <i data-lucide="calculator" class="w-4 h-4 inline ml-1"></i> الحاسبة المالية والميزانيات
+            </button>
+            <button onclick="switchTab('scope')" id="tab-scope" class="tab-btn px-5 py-3 rounded-xl font-bold text-sm whitespace-nowrap transition-all text-gray-300 hover:text-white hover:bg-white/5">
+                <i data-lucide="user-check" class="w-4 h-4 inline ml-1"></i> خدمات مطور الأعمال
+            </button>
+        </div>
+
+        <!-- TAB CONTENT 1: الملخص والاستراتيجية -->
+        <div id="content-summary" class="tab-content space-y-6">
+            <div class="glass-card p-6 md:p-8 space-y-6">
+                <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+                    <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl">
+                        <i data-lucide="compass" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-white">الرؤية الاستراتيجية وفلسفة التأسيس</h2>
+                        <p class="text-sm text-gray-400">دمج البيع المباشر مع البيع الرقمي لشركة أفق الزعيم</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm leading-relaxed text-gray-300">
+                    <div class="space-y-4">
+                        <h3 class="font-extrabold text-white text-base flex items-center gap-2">
+                            <i data-lucide="building-2" class="w-5 h-5 text-gold-400"></i> نموذج البيع المزدوج (Hybrid Retail Model)
+                        </h3>
+                        <p>
+                            يعتمد المشروع على اختيار مستودع بمساحة مناسبة في موقع حيوي مميز على شارع رئيسي، ليخدم كمعرض تجاري لاستقبال الزوار والعملاء للرؤية والمعاينة المباشرة، وفي نفس الوقت يُمثّل مركزاً لوجستياً لتنفيذ وتغليف ورفع طلبات المتجر الإلكتروني الاحترافي.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-emerald-950/40 border border-emerald-500/30 rounded-2xl space-y-3">
+                        <h3 class="font-extrabold text-emerald-400 text-base flex items-center gap-2">
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-emerald-400"></i> توصية مطور الأعمال (رمزي الجلال) — Lean Approach
+                        </h3>
+                        <p class="text-xs md:text-sm text-gray-200">
+                            أنصح ببدء العمل بـ <strong>"تشطيب متوسط وذكي"</strong> للمستودع والمعرض (دهانات جيدة ورشيقة، أرضيات خرسانية/ايبوكسي عملية، توزيع إنارة احترافية بروفايل وليد، وباب زجاجي عالي الجودة للواجهة). الهدف هو توفير التكاليف وعدم جني السيولة في التجهيزات بالبداية، حتى نتيقن من تدفق الزوار والمبيعات والإيرادات، ثم ننتقل للتجهيز الفاخر تدريجياً من صافي الأرباح.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 2: خيارات النشاط -->
+        <div id="content-options" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-sky-400">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-extrabold text-lg text-white">1. قطاع الأثاث والمستلزمات</h3>
+                        <span class="p-2 bg-sky-500/20 text-sky-400 rounded-lg"><i data-lucide="armchair"></i></span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        استغلال مساحة المستودع الكبيرة لاستعراض قطع الأثاث المكتبي والمنزلي والديكورات. يحتاج عميل الأثاث لمعاينة الجودة ميدانياً مما يجعل فتح المعرض رافعة مبيعات هائلة.
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg text-xs space-y-1">
+                        <div class="flex justify-between"><span class="text-gray-400">هامش الربح:</span> <span class="text-sky-400 font-bold">30% - 45%</span></div>
+                        <div class="flex justify-between"><span class="text-gray-400">سلة الشراء (AOV):</span> <span class="text-white font-bold">مرتفعة جداً</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-gold-400">
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-extrabold text-lg text-white">2. قطاع الإلكترونيات والتقنية</h3>
+                        <span class="p-2 bg-gold-500/20 text-gold-400 rounded-lg"><i data-lucide="smartphone"></i></span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        التركيز على الأجهزة الذكية، الملحقات، والشاشات. يتيح للعميل الشراء الميداني المباشر مع استلام فوري وضمان.
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg text-xs space-y-1">
+                        <div class="flex justify-between"><span class="text-gray-400">هامش الربح:</span> <span class="text-gold-400 font-bold">15% - 25%</span></div>
+                        <div class="flex justify-between"><span class="text-gray-400">دوران المخزون:</span> <span class="text-white font-bold">سريع جداً</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card p-6 space-y-4 border-t-4 border-t-emerald-400 relative overflow-hidden">
+                    <div class="absolute -top-3 -right-3 bg-emerald-500 text-slate-950 text-[10px] font-black px-4 py-1 rounded-bl-lg">
+                        الموصى به استراتيجياً
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-extrabold text-lg text-white">3. المتجر المتكامل والشامل</h3>
+                        <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="layers"></i></span>
+                    </div>
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        دمج قطاعي الإلكترونيات والأثاث في المعرض الميداني والمتجر الإلكتروني لتأمين تنويع الإيرادات وزيادة القيمة الدائمة للعميل.
+                    </p>
+                    <div class="p-3 bg-white/5 rounded-lg text-xs space-y-1">
+                        <div class="flex justify-between"><span class="text-gray-400">تنوع الإيرادات:</span> <span class="text-emerald-400 font-bold">أقصى كفاءة</span></div>
+                        <div class="flex justify-between"><span class="text-gray-400">قيمة العميل (CLV):</span> <span class="text-white font-bold">عالية جداً</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 3: التراخيص والمخاطر -->
+        <div id="content-legal" class="tab-content hidden space-y-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Legal & Compliance -->
+                <div class="glass-card p-6 space-y-4">
+                    <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                        <i data-lucide="file-check" class="text-emerald-400"></i> التراخيص والامتثال الحكومي
+                    </h3>
+                    <div class="space-y-3 text-xs md:text-sm">
+                        <div class="p-3 bg-white/5 rounded-xl flex items-center gap-3">
+                            <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="badge-check"></i></span>
+                            <div>
+                                <div class="font-bold text-white">السجل التجاري والأنشطة</div>
+                                <div class="text-gray-400">تحديث النشاط لتشغيل التجارة الإلكترونية والبيع بالتجزئة.</div>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl flex items-center gap-3">
+                            <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="globe"></i></span>
+                            <div>
+                                <div class="font-bold text-white">التوثيق الرقمي</div>
+                                <div class="text-gray-400">التوثيق الرسمي على منصة الأعمال (المركز السعودي للأعمال).</div>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl flex items-center gap-3">
+                            <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="building"></i></span>
+                            <div>
+                                <div class="font-bold text-white">ترخيص بلدي والدفاع المدني</div>
+                                <div class="text-gray-400">إصدار رخصة المعرض والمستودع وتوفير اشتراطات السلامة.</div>
+                            </div>
+                        </div>
+                        <div class="p-3 bg-white/5 rounded-xl flex items-center gap-3">
+                            <span class="p-2 bg-emerald-500/20 text-emerald-400 rounded-lg"><i data-lucide="receipt"></i></span>
+                            <div>
+                                <div class="font-bold text-white">الامتثال الضريبي (ZATCA)</div>
+                                <div class="text-gray-400">التسجيل بضريبة القيمة المضافة (VAT) وإصدار الفواتير الإلكترونية.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SWOT Analysis -->
+                <div class="glass-card p-6 space-y-4">
+                    <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                        <i data-lucide="shield-alert" class="text-gold-400"></i> مصفوفة إدارة المخاطر وتحليل SWOT
+                    </h3>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="p-3 bg-emerald-950/30 border border-emerald-500/30 rounded-xl space-y-1">
+                            <div class="font-bold text-emerald-400">نقاط القوة (Strengths)</div>
+                            <p class="text-gray-300">وجود معرض ميداني حقيقي يزيد ثقة المشتري الرقمي فورياً.</p>
+                        </div>
+                        <div class="p-3 bg-rose-950/30 border border-rose-500/30 rounded-xl space-y-1">
+                            <div class="font-bold text-rose-400">نقاط الضعف (Weaknesses)</div>
+                            <p class="text-gray-300">تكاليف الإيجار الأولية، وتم معالجتها بالتشطيب المتوسط.</p>
+                        </div>
+                        <div class="p-3 bg-sky-950/30 border border-sky-500/30 rounded-xl space-y-1">
+                            <div class="font-bold text-sky-400">الفرص (Opportunities)</div>
+                            <p class="text-gray-300">النمو القياسي للتجارة الإلكترونية بالسوق السعودي.</p>
+                        </div>
+                        <div class="p-3 bg-gold-950/30 border border-gold-500/30 rounded-xl space-y-1">
+                            <div class="font-bold text-gold-400">التهديدات (Threats)</div>
+                            <p class="text-gray-300">المنافسة السعرية؛ وتُعالج بتقديم عروض التجميع والخدمة الميدانية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 4: خطة التجهيز الميداني والتقني -->
+        <div id="content-roadmap" class="tab-content hidden space-y-6">
+            <div class="glass-card p-6 md:p-8 space-y-6">
+                <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i data-lucide="map-pin" class="text-emerald-400"></i> خارطة طريق التجهيز والتأسيس الميداني والتقني
+                </h2>
+
+                <div class="space-y-6 relative border-r-2 border-emerald-500/30 mr-4 pr-6">
+                    <!-- Step 1 -->
+                    <div class="relative">
+                        <div class="absolute -right-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 border-4 border-navy-900"></div>
+                        <h3 class="font-bold text-white text-base">المرحلة 1: موقع المستودع والمعرض (التشطيب المتوسط)</h3>
+                        <p class="text-xs text-gray-300 mt-1">
+                            استئجار مستودع على شارع رئيسي حيوي + دهانات رشيقة + أرضيات عملية + إنارة احترافية ليد بروفايل + تركيب باب زجاجي مدخل للمعرض.
+                        </p>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative">
+                        <div class="absolute -right-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 border-4 border-navy-900"></div>
+                        <h3 class="font-bold text-white text-base">المرحلة 2: التجهيز الإداري، الاستوديو، والنظام المحاسبي</h3>
+                        <p class="text-xs text-gray-300 mt-1">
+                            • تأثيث مكتب إداري داخلي لمتابعة المبيعات.<br>
+                            • تجهيز استوديو تصوير احترافي بداخل مساحة شاغرة بالمستودع لتصوير البضائع ورفعها فور ورودها.<br>
+                            • أجهزة كمبيوتر + طابعات باركود وفواتير + كاشيرات المعرض الميداني + ربط نظام المحاسبة والمخزون ERP بالمتجر الإلكتروني.
+                        </p>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative">
+                        <div class="absolute -right-[31px] top-0 w-4 h-4 rounded-full bg-emerald-500 border-4 border-navy-900"></div>
+                        <h3 class="font-bold text-white text-base">المرحلة 3: البرمجة والتوريد والتسويق (45 - 90 يوماً)</h3>
+                        <p class="text-xs text-gray-300 mt-1">
+                            التأسيس البرمجي للمتجر، ربط بوابات الدفع (Mada, Visa, Apple Pay, Tabby/Tamara)، شراء وتنسيق البضائع، وإطلاق الحملات التسويقية المدفوعة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 5: الحاسبة المالية والميزانيات والتوقعات -->
+        <div id="content-financial" class="tab-content hidden space-y-6">
+            
+            <!-- Dynamic Budget Selector -->
+            <div class="glass-card p-6 space-y-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <h2 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i data-lucide="calculator" class="text-emerald-400"></i> الحاسبة الاستثمارية التفاعلية
+                        </h2>
+                        <p class="text-xs text-gray-400">اختر ميزانية التأسيس للاطلاع على توزيع التكاليف والأرباح المرحلية تلقائياً</p>
+                    </div>
+
+                    <div class="flex gap-2 no-print">
+                        <button onclick="setBudget(500000)" id="btn-b500" class="budget-selector-btn px-4 py-2 text-xs font-bold rounded-xl border border-white/10 text-gray-300 hover:bg-white/5">
+                            500,000 ر.س
+                        </button>
+                        <button onclick="setBudget(700000)" id="btn-b700" class="budget-selector-btn px-4 py-2 text-xs font-bold rounded-xl border border-emerald-500/50 bg-emerald-500/20 text-emerald-400">
+                            700,000 ر.س (الموصى به)
+                        </button>
+                        <button onclick="setBudget(900000)" id="btn-b900" class="budget-selector-btn px-4 py-2 text-xs font-bold rounded-xl border border-white/10 text-gray-300 hover:bg-white/5">
+                            900,000 ر.س
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cost Allocation Table -->
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs text-right text-gray-300">
+                        <thead class="bg-white/5 text-gray-200">
+                            <tr>
+                                <th class="p-3">بند التكلفة الاستثمارية</th>
+                                <th class="p-3">التفاصيل والتأثيث</th>
+                                <th class="p-3">المبلغ المقدر (ر.س)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-white/5">
+                            <tr>
+                                <td class="p-3 font-bold text-white">تجهيز المستودع والمعرض الميداني</td>
+                                <td class="p-3 text-gray-400">تشطيب متوسط (دهانات، أرضية، إنارة بروفايل، باب زجاجي)</td>
+                                <td class="p-3 text-emerald-400 font-bold" id="cost-renovation">70,000 ر.س</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-white">المكتب، الاستوديو، الأجهزة والكاشيرات</td>
+                                <td class="p-3 text-gray-400">مكتب إداري + استوديو تصوير بداخل المستودع + كاشير وأجهزة ERP</td>
+                                <td class="p-3 text-emerald-400 font-bold" id="cost-office">35,000 ر.س</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-white">التأسيس البرمجي والتقني (شغل احترافي)</td>
+                                <td class="p-3 text-gray-400">برمجة المتجر، الربط ببوابات الدفع والشحن وتوصيف المنتجات من الألف للياء</td>
+                                <td class="p-3 text-emerald-400 font-bold" id="cost-dev">30,000 ر.س</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-white">شراء المنتجات والبضائع (المخزون)</td>
+                                <td class="p-3 text-gray-400">تأمين المخزون الأولي والأقسام التجارية المعروضة بالمستودع والمتجر</td>
+                                <td class="p-3 text-emerald-400 font-bold" id="cost-inventory">490,000 ر.س</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-bold text-white">الميزانية التسويقية والإعلان التأسيسي</td>
+                                <td class="p-3 text-gray-400">حملات تسويقية مدفوعة وجذب الزوار الميدانيين والرقميين</td>
+                                <td class="p-3 text-emerald-400 font-bold" id="cost-marketing">75,000 ر.س</td>
+                            </tr>
+                            <tr class="bg-emerald-500/10 font-bold text-emerald-400">
+                                <td class="p-3 text-white">إجمالي رأس المال الاستثماري</td>
+                                <td class="p-3 text-gray-300">تغطية كافة تكاليف التأسيس والتوريد والتشغيل</td>
+                                <td class="p-3 text-lg" id="cost-total">700,000 ر.س</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Quarterly Profit Table & Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Profit Progression -->
+                <div class="glass-card p-6 space-y-4">
+                    <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                        <i data-lucide="trending-up" class="text-gold-400"></i> تقرير الأرباح التقديرية المتدرجة (السنة الأولى)
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-xs text-right text-gray-300">
+                            <thead class="bg-white/5 text-gray-200">
+                                <tr>
+                                    <th class="p-2">الفترة الزمنية</th>
+                                    <th class="p-2">نسبة الربح</th>
+                                    <th class="p-2">المبيعات (ر.س)</th>
+                                    <th class="p-2">صافي الربح (ر.س)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-white/5">
+                                <tr>
+                                    <td class="p-2 font-bold text-white">الربع الأول (الأشهر 1 - 3)</td>
+                                    <td class="p-2 text-gold-400 font-bold">15%</td>
+                                    <td class="p-2" id="q1-sales">350,000</td>
+                                    <td class="p-2 text-emerald-400 font-bold" id="q1-profit">52,500</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold text-white">الربع الثاني (الأشهر 4 - 6)</td>
+                                    <td class="p-2 text-gold-400 font-bold">20%</td>
+                                    <td class="p-2" id="q2-sales">450,000</td>
+                                    <td class="p-2 text-emerald-400 font-bold" id="q2-profit">90,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold text-white">الربع الثالث (الأشهر 7 - 9)</td>
+                                    <td class="p-2 text-gold-400 font-bold">27%</td>
+                                    <td class="p-2" id="q3-sales">600,000</td>
+                                    <td class="p-2 text-emerald-400 font-bold" id="q3-profit">162,000</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-2 font-bold text-white">الربع الرابع (الأشهر 10 - 12)</td>
+                                    <td class="p-2 text-gold-400 font-bold">35%</td>
+                                    <td class="p-2" id="q4-sales">800,000</td>
+                                    <td class="p-2 text-emerald-400 font-bold" id="q4-profit">280,000</td>
+                                </tr>
+                                <tr class="bg-emerald-500/10 font-bold text-emerald-400">
+                                    <td class="p-2 text-white">الإجمالي السنوي النهائي</td>
+                                    <td class="p-2 text-gold-400">24.2% (متوسط)</td>
+                                    <td class="p-2 text-white" id="qtotal-sales">2,200,000</td>
+                                    <td class="p-2 text-emerald-400 text-sm" id="qtotal-profit">584,500</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Interactive Chart -->
+                <div class="glass-card p-6 flex flex-col justify-center items-center">
+                    <h3 class="font-bold text-sm text-gray-300 mb-4 text-right w-full">تطور نمو الأرباح المرحلية خلال السنة الأولى</h3>
+                    <div class="w-full h-64">
+                        <canvas id="profitChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT 6: نطاق خدمات مطور الأعمال -->
+        <div id="content-scope" class="tab-content hidden space-y-6">
+            <div class="glass-card p-6 md:p-8 space-y-6">
+                <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+                    <div class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl">
+                        <i data-lucide="user-check" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-xl font-bold text-white">نطاق خدمات ومسؤوليات مطور الأعمال (رمزي الجلال)</h2>
+                        <p class="text-sm text-gray-400">التزامات التنفيذ والإشراف لصالح الأستاذ عبدالباسط أبو أماسي</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+                    <div class="p-5 bg-white/5 rounded-2xl border border-white/10 space-y-3">
+                        <span class="p-3 bg-emerald-500/20 text-emerald-400 rounded-xl inline-block"><i data-lucide="wrench"></i></span>
+                        <h3 class="font-bold text-white">1. التأسيس والتشطيب الميداني</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            الإشراف الكامل على اختيار موقع المستودع المعرضي، وتنفيذ التشطيب المتوسط الذكي دون تكلفة زائدة لضبط الميزانية التأسيسية.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-white/5 rounded-2xl border border-white/10 space-y-3">
+                        <span class="p-3 bg-gold-500/20 text-gold-400 rounded-xl inline-block"><i data-lucide="code"></i></span>
+                        <h3 class="font-bold text-white">2. التجهيز البرمجي والأنظمة</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            التطوير البرمجي الشامل للمتجر الإلكتروني، تجهيز استوديو التصوير بالمستودع، وربط الكاشيرات والنظام المحاسبي ERP بالمتجر.
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-white/5 rounded-2xl border border-white/10 space-y-3">
+                        <span class="p-3 bg-sky-500/20 text-sky-400 rounded-xl inline-block"><i data-lucide="megaphone"></i></span>
+                        <h3 class="font-bold text-white">3. التسويق وتنمية المبيعات</h3>
+                        <p class="text-xs text-gray-300 leading-relaxed">
+                            توجيه الحملات الإعلانية والتسويقية المدفوعة الميدانية والرقمية للوصول بالمشروع إلى أهداف الأرباح التقديرية بدقة.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="text-center text-xs text-gray-500 pt-6 border-t border-white/10">
+            جميع الحقوق محفوظة © شركة أفق الزعيم — إعداد المطور والمدير المستشار رمزي الجلال (2026)
+        </footer>
+
+    </div>
+
+    <!-- SCRIPT LOGIC -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Financial Data Dictionary
+        const financialData = {
+            500000: {
+                renovation: 50000,
+                office: 25000,
+                dev: 25000,
+                inventory: 350000,
+                marketing: 50000,
+                sales: [250000, 320000, 420000, 600000],
+                profits: [37500, 64000, 113400, 210000]
+            },
+            700000: {
+                renovation: 70000,
+                office: 35000,
+                dev: 30000,
+                inventory: 490000,
+                marketing: 75000,
+                sales: [350000, 450000, 600000, 800000],
+                profits: [52500, 90000, 162000, 280000]
+            },
+            900000: {
+                renovation: 90000,
+                office: 45000,
+                dev: 30000,
+                inventory: 635000,
+                marketing: 100000,
+                sales: [450000, 580000, 750000, 1000000],
+                profits: [67500, 116000, 202500, 350000]
+            }
+        };
+
+        let currentChart = null;
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('bg-emerald-500', 'text-slate-950');
+                btn.classList.add('text-gray-300', 'hover:bg-white/5');
+            });
+
+            document.getElementById(`content-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`tab-${tabId}`);
+            activeBtn.classList.add('bg-emerald-500', 'text-slate-950');
+            activeBtn.classList.remove('text-gray-300');
+        }
+
+        // Set Dynamic Budget
+        function setBudget(amount) {
+            const data = financialData[amount];
+            if (!data) return;
+
+            // Highlight Buttons
+            document.querySelectorAll('.budget-selector-btn').forEach(b => {
+                b.classList.remove('border-emerald-500/50', 'bg-emerald-500/20', 'text-emerald-400');
+                b.classList.add('border-white/10', 'text-gray-300');
+            });
+
+            let btnId = amount === 500000 ? 'btn-b500' : amount === 700000 ? 'btn-b700' : 'btn-b900';
+            document.getElementById(btnId).classList.add('border-emerald-500/50', 'bg-emerald-500/20', 'text-emerald-400');
+
+            // Update Stats
+            document.getElementById('stat-capital').innerText = amount.toLocaleString('ar-SA') + ' ر.س';
+            const totalSales = data.sales.reduce((a, b) => a + b, 0);
+            const totalProfit = data.profits.reduce((a, b) => a + b, 0);
+
+            document.getElementById('stat-sales').innerText = totalSales.toLocaleString('ar-SA') + ' ر.س';
+            document.getElementById('stat-profit').innerText = totalProfit.toLocaleString('ar-SA') + ' ر.س';
+
+            // Update Tables
+            document.getElementById('cost-renovation').innerText = data.renovation.toLocaleString('ar-SA') + ' ر.س';
+            document.getElementById('cost-office').innerText = data.office.toLocaleString('ar-SA') + ' ر.س';
+            document.getElementById('cost-dev').innerText = data.dev.toLocaleString('ar-SA') + ' ر.س';
+            document.getElementById('cost-inventory').innerText = data.inventory.toLocaleString('ar-SA') + ' ر.س';
+            document.getElementById('cost-marketing').innerText = data.marketing.toLocaleString('ar-SA') + ' ر.س';
+            document.getElementById('cost-total').innerText = amount.toLocaleString('ar-SA') + ' ر.س';
+
+            // Update Quarters
+            for (let i = 0; i < 4; i++) {
+                document.getElementById(`q${i+1}-sales`).innerText = data.sales[i].toLocaleString('ar-SA');
+                document.getElementById(`q${i+1}-profit`).innerText = data.profits[i].toLocaleString('ar-SA');
+            }
+
+            document.getElementById('qtotal-sales').innerText = totalSales.toLocaleString('ar-SA');
+            document.getElementById('qtotal-profit').innerText = totalProfit.toLocaleString('ar-SA');
+
+            // Update Chart
+            updateProfitChart(data.profits);
+        }
+
+        // Initialize Chart.js
+        function updateProfitChart(profits) {
+            const ctx = document.getElementById('profitChart').getContext('2d');
+            
+            if (currentChart) {
+                currentChart.destroy();
+            }
+
+            currentChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['الربع الأول (15%)', 'الربع الثاني (20%)', 'الربع الثالث (27%)', 'الربع الرابع (35%)'],
+                    datasets: [{
+                        label: 'صافي الربح التقديري (ر.س)',
+                        data: profits,
+                        borderColor: '#10b981',
+                        backgroundColor: 'rgba(16, 185, 129, 0.15)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#fbbf24',
+                        pointRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: '#cbd5e1',
+                                font: { family: 'Tajawal' }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            ticks: { color: '#94a3b8', font: { family: 'Tajawal' } },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        },
+                        y: {
+                            ticks: { color: '#94a3b8', font: { family: 'Tajawal' } },
+                            grid: { color: 'rgba(255, 255, 255, 0.05)' }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Initialize Default State
+        window.onload = function() {
+            setBudget(700000);
+        };
+    </script>
+</body>
+</html>
