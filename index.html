@@ -11,7 +11,7 @@
     <meta name="author" content="رمزي الجلال">
     <meta name="google-site-verification" content="jnb4ZAprkdWQLnyKBzvkwD_0wArZygsQoA4bY4X5Vcs" />
     
-    <!-- استدعاء خط Cairo وأيقونات FontAwesome -->
+    <!-- استدعاء خط Cairo وأيقونات FontAwesome بشكل صحيح -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -329,7 +329,7 @@
             font-size: 0.98rem;
         }
 
-        /* قسم معرض المتاجر */
+        /* معرض المتاجر */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -394,7 +394,7 @@
             color: #93c5fd;
         }
 
-        /* قسم آراء العملاء المبني على النتائج والأرقام (Results-Driven Testimonials) */
+        /* قسم آراء العملاء المبني على النتائج (Results-Driven Testimonials) */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -411,7 +411,6 @@
             flex-direction: column;
             justify-content: space-between;
             transition: all 0.3s ease;
-            position: relative;
         }
 
         .testimonial-card:hover {
@@ -443,11 +442,17 @@
         }
 
         .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .author-info h4 {
@@ -460,6 +465,11 @@
             color: var(--accent);
             font-size: 0.85rem;
             font-weight: 700;
+        }
+
+        .author-store a {
+            color: var(--accent);
+            text-decoration: none;
         }
 
         /* قسم كلمة المطور والمؤسس */
@@ -642,7 +652,7 @@
         <ul class="nav-links">
             <li><a href="#about">عن المطور</a></li>
             <li><a href="#portfolio">نماذج الأعمال</a></li>
-            <li><a href="#results">نتائج العملاء</a></li>
+            <li><a href="#results">آراء العملاء</a></li>
             <li><a href="#services">الخدمات</a></li>
             <li><a href="#platforms">المنصات</a></li>
             <li><a href="#builder">صمّم خطتك</a></li>
@@ -715,7 +725,7 @@
             </div>
         </div>
 
-        <!-- معرض المتاجر التي قمت بإنشائها أو إدارتها -->
+        <!-- معرض المتاجر -->
         <div class="section-title" id="portfolio">
             <h2>نماذج من مشاريعنا الحية</h2>
             <p style="color: var(--text-muted);">متاجر إلكترونية حقيقية قمنا بتطويرها وإدارتها بنجاح</p>
@@ -756,78 +766,78 @@
             </div>
         </div>
 
-        <!-- قسم آراء العملاء المبني على النتائج والأرقام الموثوقة -->
+        <!-- قسم آراء العملاء المبني على الأرقام والنتائج -->
         <div class="section-title" id="results">
             <h2>قصص نجاح وأرقام حقيقية من عملائنا</h2>
             <p style="color: var(--text-muted);">شهادات مبنية على الأداء والنتائج الملموسة بعد تطوير المتاجر</p>
         </div>
 
         <div class="testimonials-grid">
-            <!-- التقييم 1 -->
+            <!-- التقييم الأول -->
             <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+                <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
+                    <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
+                </div>
                 <div>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial-text" itemprop="reviewBody">
-                        "بعد إعداد الـ CAPI وتفعيل حملات السلات المتروكة بدقة مع الأستاذ رمزي، انخفضت لدينا تكلفة الاستحواذ على الإعلانات بنسبة 30% وارتفعت نسبة استعادة العملاء بشكل ملحوظ."
+                        "بعد إعداد تتبع الـ CAPI بالكامل وتفعيل حملات السلات المتروكة والأتمتة، انخفضت لدينا تكلفة الإعلانات بشكل ملحوظ وزادت مبيعاتنا خلال أول شهرين فقط. الشغل احترافي ومبني على الأرقام الحقيقية."
                     </p>
                 </div>
                 <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <img src="ramzy_galal_logo.png" alt="أحمد" class="author-avatar">
+                    <div class="author-avatar">ر</div>
                     <div class="author-info">
-                        <h4 itemprop="name">رمزي أحمد</h4>
-                        <span class="author-store">مؤسس متجر ريوم السعودية</span>
+                        <h4 itemprop="name">إدارة التشغيل</h4>
+                        <span class="author-store">متجر <a href="https://reoomsaudi.sa" target="_blank" rel="noopener">ريوم السعودية</a></span>
                     </div>
                 </div>
             </div>
 
-            <!-- التقييم 2 -->
+            <!-- التقييم الثاني -->
             <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+                <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
+                    <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
+                </div>
                 <div>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial-text" itemprop="reviewBody">
-                        "نقلنا متجرنا لمنصة Shopify بتصميم احترافي وسريع، وخلال أول شهرين تضاعفت معدلات إتمام الطلبات بنسبة تجاوزت 45% بفضل تحسين تجربة المستخدم وربط بوابات الدفع بسلاسة."
+                        "تأسيس متجرنا على Shopify وتجهيز تجربة المستخدم السلسة ساعدنا جداً في استقبال الطلبات دون أي تعقيد تقني. المتابعة والدعم الفني مستمر حتى بعد تسليم المتجر."
                     </p>
                 </div>
                 <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <img src="ramzy_galal_logo.png" alt="سلطان" class="author-avatar">
+                    <div class="author-avatar">ج</div>
                     <div class="author-info">
-                        <h4 itemprop="name">حمزة</h4>
-                        <span class="author-store">مدير متجر جلسات المنزل</span>
+                        <h4 itemprop="name">مؤسس المتجر</h4>
+                        <span class="author-store">متجر جلسات المنزل (Shopify)</span>
                     </div>
                 </div>
             </div>
 
-            <!-- التقييم 3 -->
+            <!-- التقييم الثالث -->
             <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
+                <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
+                    <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
+                </div>
                 <div>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                    <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                        <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                     </div>
                     <p class="testimonial-text" itemprop="reviewBody">
-                        "الاستشارات الدقيقة وهندسة العمليات التي قام بها رمزي ساعدتنا في ترتيب العمليات الإدارية وتشغيل الحملات التسويقية بعائد استثماري (ROAS) ممتاز ومستدام."
+                        "الواجهات والتعديلات البرمجية التي تمت على متجرنا جعلت التصفح سريعاً وجذاباً جداً للمستهلك، الربط التقني ببوابات الشحن والدفع تم بأعلى كفاءة وسرعة."
                     </p>
                 </div>
                 <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <img src="ramzy_galal_logo.png" alt="فيصل" class="author-avatar">
+                    <div class="author-avatar">ل</div>
                     <div class="author-info">
-                        <h4 itemprop="name">مقبل</h4>
-                        <span class="author-store">مالك متجر لينيوهوم</span>
+                        <h4 itemprop="name">المدير التنفيذي</h4>
+                        <span class="author-store">علامة لينيوهوم التجارية</span>
                     </div>
                 </div>
             </div>
@@ -887,7 +897,7 @@
             </div>
         </div>
 
-        <!-- تحديد الخيارات التفاعلية -->
+        <!-- تحديد الخيارات التفاعلية (حاسبة الخدمات للواتساب) -->
         <div class="builder-section" id="builder">
             <div class="section-title" style="margin-bottom: 30px;">
                 <h2>⚡ حدد خيارات مشروعك بدقة</h2>
