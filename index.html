@@ -116,6 +116,7 @@
             display: flex;
             align-items: center;
             gap: 6px;
+            text-decoration: none;
         }
 
         /* الهيدر والترويسة */
@@ -394,7 +395,7 @@
             color: #93c5fd;
         }
 
-        /* قسم آراء العملاء المبني على النتائج (Results-Driven Testimonials) */
+        /* قسم آراء العملاء المبني على الأرقام والمصحح برمجياً */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -659,7 +660,7 @@
         </ul>
 
         <div class="nav-actions">
-           <a href="index-en.html" class="lang-switch"><i class="fa-solid fa-globe"></i> English</a>
+            <a href="index-en.html" class="lang-switch"><i class="fa-solid fa-globe"></i> English</a>
             <a href="https://wa.me/966500510823" target="_blank" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">
                 تواصل مباشر
             </a>
@@ -766,7 +767,7 @@
             </div>
         </div>
 
-        <!-- قسم آراء العملاء المبني على الأرقام والنتائج -->
+        <!-- قسم آراء العملاء المبني على الأرقام والمصحح برمجياً -->
         <div class="section-title" id="results">
             <h2>قصص نجاح وأرقام حقيقية من عملائنا</h2>
             <p style="color: var(--text-muted);">شهادات مبنية على الأداء والنتائج الملموسة بعد تطوير المتاجر</p>
@@ -775,9 +776,6 @@
         <div class="testimonials-grid">
             <!-- التقييم الأول -->
             <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-                <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                    <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
-                </div>
                 <div>
                     <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                         <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
@@ -798,9 +796,6 @@
 
             <!-- التقييم الثاني -->
             <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-                <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                    <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
-                </div>
                 <div>
                     <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                         <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
@@ -821,9 +816,6 @@
 
             <!-- التقييم الثالث -->
             <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-                <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
-                    <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
-                </div>
                 <div>
                     <div class="stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
                         <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
@@ -897,7 +889,7 @@
             </div>
         </div>
 
-        <!-- تحديد الخيارات التفاعلية (حاسبة الخدمات للواتساب) -->
+        <!-- تحديد الخيارات التفاعلية -->
         <div class="builder-section" id="builder">
             <div class="section-title" style="margin-bottom: 30px;">
                 <h2>⚡ حدد خيارات مشروعك بدقة</h2>
@@ -995,10 +987,6 @@
             }
             
             waLink.href = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(textMsg);
-        }
-
-        function toggleLang() {
-            alert("سيتم إطلاق النسخة الإنجليزية قريباً!");
         }
 
         updateSummary();
