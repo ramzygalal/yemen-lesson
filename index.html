@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- تهيئة SEO لمحركات البحث -->
     <title>رمزي الجلال | حلول المتاجر وتطوير الأعمال والتسويق الرقمي</title>
     <meta name="description" content="منصة رمزي الجلال لتقديم حلول متكاملة في تطوير الأعمال، إنشاء وتصميم المتاجر الإلكترونية (سلة، زد، Shopify، WordPress، OpenCart)، ربط بوابات الدفع والشحن، والتسويق الرقمي.">
     <meta name="keywords" content="رمزي الجلال, حلول المتاجر, تطوير الأعمال, إنشاء متجر إلكتروني, متجر سلة, متجر زد, Shopify, WordPress, OpenCart, تسويق إلكتروني, ربط بوابات الدفع, CAPI">
     <meta name="author" content="رمزي الجلال">
     <meta name="google-site-verification" content="jnb4ZAprkdWQLnyKBzvkwD_0wArZygsQoA4bY4X5Vcs" />
     
-    <!-- استدعاء خط Cairo وأيقونات FontAwesome -->
+    <!-- تصحيح روابط الخطوط والأيقونات -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -26,972 +24,185 @@
             --text-main: #f8fafc;
             --text-muted: #94a3b8;
         }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Cairo', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-            padding-top: 70px;
-        }
-
-        /* الشريط العلوي الثابت */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 70px;
-            background: rgba(11, 15, 25, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--card-border);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 5%;
-        }
-
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-        }
-
-        .logo-img {
-            height: 48px;
-            width: auto;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .nav-logo-text {
-            font-size: 1.2rem;
-            font-weight: 900;
-            color: #fff;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 25px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #60a5fa;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .lang-switch {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--card-border);
-            color: var(--text-main);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* الهيدر والترويسة */
-        header {
-            padding: 100px 20px 60px;
-            text-align: center;
-            background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg-dark) 75%);
-            position: relative;
-        }
-
-        .badge {
-            background: rgba(37, 99, 235, 0.15);
-            color: #60a5fa;
-            border: 1px solid rgba(96, 165, 250, 0.3);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            font-weight: 900;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.hero-desc {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            max-width: 750px;
-            margin: 0 auto 35px;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 32px;
-            border-radius: 12px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-            font-size: 1.05rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-3px);
-        }
-
-        .btn-outline {
-            background: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--card-border);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        /* الإحصائيات السريعة */
-        .stats-section {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        /* شريط المنصات المتحرك */
-        .marquee-section {
-            padding: 25px 0;
-            background: rgba(15, 23, 42, 0.6);
-            border-top: 1px solid var(--card-border);
-            border-bottom: 1px solid var(--card-border);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .marquee-title {
-            text-align: center;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-        }
-
-        .marquee-track {
-            display: flex;
-            width: calc(250px * 10);
-            animation: scroll 20s linear infinite;
-        }
-
-        .marquee-track:hover {
-            animation-play-state: paused;
-        }
-
-        .logo-item {
-            width: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            opacity: 0.85;
-        }
-
-        @keyframes scroll {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-250px * 5)); }
-        }
-
-        /* المحتوى الرئيسي */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 70px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.2rem;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 70px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 35px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(37, 99, 235, 0.15);
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            color: #60a5fa;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .card p {
-            color: var(--text-muted);
-            font-size: 0.98rem;
-        }
-
-        /* قسم معرض المتاجر */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 70px;
-        }
-
-        .portfolio-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: right;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .portfolio-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.2);
-        }
-
-        .portfolio-tag {
-            background: rgba(16, 185, 129, 0.15);
-            color: var(--accent);
-            padding: 5px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: inline-block;
-            margin-bottom: 15px;
-            width: fit-content;
-        }
-
-        .portfolio-card h3 {
-            color: #fff;
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-        }
-
-        .portfolio-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .portfolio-link {
-            color: #60a5fa;
-            text-decoration: none;
-            font-weight: 700;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: gap 0.2s ease;
-        }
-
-        .portfolio-link:hover {
-            gap: 12px;
-            color: #93c5fd;
-        }
-
-        /* قسم آراء العملاء المبني على النتائج والأرقام (Results-Driven Testimonials) */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 30px;
-            margin-bottom: 70px;
-        }
-
-        .testimonial-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            padding: 35px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.15);
-        }
-
-        .stars {
-            color: #f59e0b;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-text {
-            color: #e2e8f0;
-            font-size: 1.02rem;
-            line-height: 1.7;
-            margin-bottom: 25px;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-top: 1px solid var(--card-border);
-            padding-top: 20px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid var(--accent);
-        }
-
-        .author-info h4 {
-            color: #fff;
-            font-size: 1.05rem;
-            margin-bottom: 2px;
-        }
-
-        .author-store {
-            color: var(--accent);
-            font-size: 0.85rem;
-            font-weight: 700;
-        }
-
-        /* قسم كلمة المطور والمؤسس */
-        .about-developer {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.95) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 50px 40px;
-            margin-bottom: 70px;
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-
-        .developer-avatar {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 4px solid var(--primary);
-            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
-            flex-shrink: 0;
-        }
-
-        .developer-info h3 {
-            color: #fff;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-
-        .developer-role {
-            color: var(--accent);
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .developer-quote {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            line-height: 1.8;
-            font-style: italic;
-        }
-
-        .platforms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .platform-card {
-            background: var(--card-bg);
-            border: 2px solid var(--card-border);
-            border-radius: 16px;
-            padding: 20px 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .platform-card:hover, .platform-card.active {
-            border-color: var(--primary);
-            background: rgba(37, 99, 235, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .platform-card i {
-            font-size: 2.2rem;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .builder-section {
-            background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
-            border: 1px solid var(--card-border);
-            border-radius: 24px;
-            padding: 45px 35px;
-            margin-top: 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
-
-        .category-block {
-            margin-bottom: 35px;
-        }
-
-        .category-block h4 {
-            color: #60a5fa;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .options-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .option-btn {
-            background: rgba(15, 23, 42, 0.8);
-            border: 2px solid var(--card-border);
-            padding: 14px;
-            border-radius: 14px;
-            color: #fff;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
-        .option-btn.selected {
-            border-color: var(--accent);
-            background: rgba(16, 185, 129, 0.15);
-        }
-
-        .summary-box {
-            background: #0b0f19;
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 25px;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        /* زر الواتساب العائم */
-        .floating-wa {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s ease;
-        }
-
-        .floating-wa:hover {
-            transform: scale(1.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            h1 { font-size: 2.1rem; }
-            .container { padding: 40px 15px; }
-            .builder-section { padding: 30px 15px; }
-            .about-developer { flex-direction: column; text-align: center; padding: 30px 20px; }
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Cairo', sans-serif; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-main); line-height: 1.6; overflow-x: hidden; padding-top: 70px; }
+        nav { position: fixed; top: 0; left: 0; right: 0; height: 70px; background: rgba(11, 15, 25, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--card-border); z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 0 5%; }
+        .nav-logo-text { font-size: 1.2rem; font-weight: 900; color: #fff; text-decoration: none; }
+        .nav-links { display: flex; gap: 25px; list-style: none; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.3s ease; }
+        .nav-links a:hover { color: #60a5fa; }
+        header { padding: 100px 20px 60px; text-align: center; background: radial-gradient(circle at 50% 0%, #1e1b4b 0%, var(--bg-dark) 75%); position: relative; }
+        .badge { background: rgba(37, 99, 235, 0.15); color: #60a5fa; border: 1px solid rgba(96, 165, 250, 0.3); padding: 8px 20px; border-radius: 50px; font-size: 0.95rem; font-weight: 700; display: inline-block; margin-bottom: 20px; }
+        h1 { font-size: 2.8rem; font-weight: 900; margin-bottom: 20px; background: linear-gradient(135deg, #ffffff 0%, #93c5fd 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p.hero-desc { font-size: 1.2rem; color: var(--text-muted); max-width: 750px; margin: 0 auto 35px; }
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 14px 32px; border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; cursor: pointer; border: none; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-primary { background-color: var(--primary); color: white; box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4); }
+        .btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-3px); }
+        .stats-section { display: flex; justify-content: center; gap: 40px; margin-top: 50px; flex-wrap: wrap; }
+        .stat-item { text-align: center; }
+        .stat-number { font-size: 2rem; font-weight: 900; color: var(--accent); }
+        .stat-label { font-size: 0.9rem; color: var(--text-muted); }
+        .marquee-section { padding: 25px 0; background: rgba(15, 23, 42, 0.6); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); overflow: hidden; position: relative; }
+        .marquee-track { display: flex; width: calc(250px * 10); animation: scroll 20s linear infinite; }
+        .logo-item { width: 250px; display: flex; align-items: center; justify-content: center; gap: 12px; font-weight: 700; font-size: 1.1rem; color: #cbd5e1; opacity: 0.85; }
+        /* تصحيح أنميشن الشريط المتحرك */
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-250px * 5)); } }
+        .container { max-width: 1200px; margin: 0 auto; padding: 70px 20px; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: #fff; margin-bottom: 10px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 70px; }
+        .card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(12px); transition: all 0.3s ease; }
+        .card:hover { transform: translateY(-5px); border-color: rgba(37, 99, 235, 0.3); }
+        .card h3 { color: #fff; margin-bottom: 15px; display: flex; align-items: center; gap: 12px; }
+        .reviews-section { padding: 80px 0; background: radial-gradient(circle at 50% 100%, #131a2e 0%, var(--bg-dark) 80%); border-top: 1px solid var(--card-border); }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; }
+        .review-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(12px); transition: all 0.3s ease; display: flex; flex-direction: column; justify-content: space-between; }
+        .review-card:hover { transform: translateY(-5px); border-color: rgba(37, 99, 235, 0.4); box-shadow: 0 10px 30px rgba(37, 99, 235, 0.05); }
+        .review-stars { color: #fbbf24; font-size: 0.95rem; margin-bottom: 15px; display: flex; gap: 4px; }
+        .review-text { color: var(--text-main); font-size: 1.05rem; font-weight: 600; line-height: 1.7; margin-bottom: 25px; }
+        .review-author { display: flex; align-items: center; gap: 15px; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 15px; }
+        .author-avatar { width: 48px; height: 48px; background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); border-radius: 50px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 1.1rem; }
+        .author-info h4 { font-size: 1rem; font-weight: 700; color: #fff; }
+        .author-info p { font-size: 0.85rem; color: var(--text-muted); margin-top: 2px; }
+        .author-info a { color: #60a5fa; text-decoration: none; }
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid var(--card-border); color: var(--text-muted); font-size: 0.9rem; }
     </style>
 </head>
 <body>
-
-    <!-- الشريط العلوي الثابت مع اللوجو -->
     <nav>
-        <a href="#" class="nav-logo">
-            <img src="ramzy_galal_logo.png" alt="رمزي الجلال" class="logo-img">
-            <span class="nav-logo-text">رمزي الجلال</span>
-        </a>
-
+        <a href="#" class="nav-logo-text">رمزي الجلال</a>
         <ul class="nav-links">
-            <li><a href="#about">عن المطور</a></li>
-            <li><a href="#portfolio">نماذج الأعمال</a></li>
-            <li><a href="#results">نتائج العملاء</a></li>
             <li><a href="#services">الخدمات</a></li>
-            <li><a href="#platforms">المنصات</a></li>
-            <li><a href="#builder">صمّم خطتك</a></li>
+            <li><a href="#reviews">آراء العملاء</a></li>
         </ul>
-
-        <div class="nav-actions">
-            <button class="lang-switch" onclick="toggleLang()"><i class="fa-solid fa-globe"></i> English</button>
-            <a href="https://wa.me/966500510823" target="_blank" class="btn btn-primary" style="padding: 8px 18px; font-size: 0.9rem;">
-                تواصل مباشر
-            </a>
-        </div>
     </nav>
-
-    <!-- الهيدر والترويسة -->
     <header>
-        <span class="badge"><i class="fa-solid fa-chart-line"></i> حلول المتاجر وتطوير الأعمال</span>
-        <h1>الوجهة المتكاملة للتوسع الرقمي وزيادة المبيعات</h1>
-        <p class="hero-desc">نقدم استراتيجيات تطوير الأعمال، بناء وتصميم المتاجر الإلكترونية الفائقة، وإدارة الحملات التسويقية لضمان أعلى عائد على استثمارك.</p>
-        
+        <div class="badge">مطور ومستشار حلول التجارة الرقمية</div>
+        <h1>حلول متكاملة لتأسيس المتاجر وتطوير الأعمال</h1>
+        <p class="hero-desc">نساعدك على نقل تجارتك لآفاق رحبة من خلال تصميم متاجر عالية الكفاءة والأتمتة الرقمية وحلول التتبع الذكي لتعظيم عوائدك التسويقية.</p>
         <div class="cta-buttons">
-            <a href="https://wa.me/966500510823" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> تواصل معي عبر الواتساب</a>
-            <a href="#builder" class="btn btn-outline">صمّم خطة عملك الآن</a>
+            <a href="#services" class="btn btn-primary">ابدأ مشروعك الآن <i class="fas fa-arrow-left"></i></a>
         </div>
-
         <div class="stats-section">
-            <div class="stat-item">
-                <div class="stat-number">+50</div>
-                <div class="stat-label">متجر تم تأسيسه</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">أتمتة وتتبع CAPI</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">دعم واستشارات تقنية</div>
-            </div>
+            <div class="stat-item"><div class="stat-number">+50</div><div class="stat-label">متجر تم تأسيسه</div></div>
+            <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">أتمتة وتتبع CAPI</div></div>
+            <div class="stat-item"><div class="stat-number">24/7</div><div class="stat-label">استشارات ودعم فني</div></div>
         </div>
     </header>
-
-    <!-- شريط المنصات المتحرك -->
     <div class="marquee-section">
-        <div class="marquee-title">نصمم ونطور المتاجر على أفضل المنصات العالمية والعربية</div>
         <div class="marquee-track">
-            <div class="logo-item"><i class="fa-solid fa-basket-shopping" style="color: #10b981;"></i> منصة سلة</div>
-            <div class="logo-item"><i class="fa-solid fa-store" style="color: #8b5cf6;"></i> منصة زد</div>
-            <div class="logo-item"><i class="fa-brands fa-shopify" style="color: #95bf47;"></i> Shopify</div>
-            <div class="logo-item"><i class="fa-brands fa-wordpress" style="color: #21759b;"></i> WordPress</div>
-            <div class="logo-item"><i class="fa-solid fa-cart-shopping" style="color: #239ab9;"></i> OpenCart</div>
-            
-            <div class="logo-item"><i class="fa-solid fa-basket-shopping" style="color: #10b981;"></i> منصة سلة</div>
-            <div class="logo-item"><i class="fa-solid fa-store" style="color: #8b5cf6;"></i> منصة زد</div>
-            <div class="logo-item"><i class="fa-brands fa-shopify" style="color: #95bf47;"></i> Shopify</div>
-            <div class="logo-item"><i class="fa-brands fa-wordpress" style="color: #21759b;"></i> WordPress</div>
-            <div class="logo-item"><i class="fa-solid fa-cart-shopping" style="color: #239ab9;"></i> OpenCart</div>
+            <div class="logo-item"><i class="fab fa-shopify"></i> Shopify</div>
+            <div class="logo-item"><i class="fas fa-shopping-bag"></i> منصة سلة</div>
+            <div class="logo-item"><i class="fab fa-wordpress"></i> WooCommerce</div>
+            <div class="logo-item"><i class="fas fa-store"></i> منصة زد</div>
+            <div class="logo-item"><i class="fab fa-opencart"></i> OpenCart</div>
         </div>
     </div>
-
-    <div class="container">
-
-        <!-- قسم كلمة المطور والرؤية -->
-        <div class="about-developer" id="about">
-            <img src="ramzy_profile.jpg" alt="رمزي الجلال" class="developer-avatar" onerror="this.src='ramzy_galal_logo.png'">
-            <div class="developer-info">
-                <h3>رمزي الجلال</h3>
-                <div class="developer-role">مطور ومستشار حلول المتاجر والتجارة الرقمية</div>
-                <p class="developer-quote">
-                    "نجاح متجرك الإلكتروني لا يتوقف فقط عند التصميم الأنيق، بل يبدأ من تحسين تجربة المستخدم، وأتمتة العمليات، وبناء استراتيجيات تسويقية تعتمد على البيانات وتوليد المبيعات الحقيقية. نسعى دائماً لتحويل أفكارك التجارية إلى كيان رقمي ناجح ومستدام."
-                </p>
-            </div>
+    <main class="container" id="services">
+        <div class="section-title">
+            <div class="badge">خدماتنا الاحترافية</div>
+            <h2>ماذا نقدم لتطوير تجارتك؟</h2>
         </div>
-
-        <!-- معرض المتاجر التي قمت بإنشائها أو إدارتها -->
-        <div class="section-title" id="portfolio">
-            <h2>نماذج من مشاريعنا الحية</h2>
-            <p style="color: var(--text-muted);">متاجر إلكترونية حقيقية قمنا بتطويرها وإدارتها بنجاح</p>
-        </div>
-
-        <div class="portfolio-grid">
-            <div class="portfolio-card">
-                <div>
-                    <span class="portfolio-tag"><i class="fa-brands fa-shopify"></i> منصة Shopify</span>
-                    <h3>متجر جلسات المنزل</h3>
-                    <p>متجر متخصص في الأثاث والجلسات المنزلية، تم تأسيسه وتصميمه بالكامل عبر منصة Shopify مع تجربة تسوق سلسة وتكامل مع خيارات الدفع.</p>
-                </div>
-                <a href="https://www.jalasathome.com/" target="_blank" class="portfolio-link">
-                    زيارة المتجر المباشر <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </div>
-
-            <div class="portfolio-card">
-                <div>
-                    <span class="portfolio-tag"><i class="fa-solid fa-store"></i> تجارة إلكترونية متكاملة</span>
-                    <h3>متجر لينيوهوم (Linyo Home)</h3>
-                    <p>علامة تجارية متخصصة في مستلزمات المنزل العصري، تم تجهيز وتطوير واجهاتها لتقديم تجربة شرائية سريعة وجذابة للمستهلك.</p>
-                </div>
-                <a href="https://linyohome.com/ar-sa/" target="_blank" class="portfolio-link">
-                    زيارة المتجر المباشر <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </div>
-
-            <div class="portfolio-card">
-                <div>
-                    <span class="portfolio-tag"><i class="fa-solid fa-chart-line"></i> تطوير وإدارة شاملة</span>
-                    <h3>متجر ريوم السعودية</h3>
-                    <p>علامة سعودية متميزة نقوم حالياً بالإشراف الكامل عليها، وتطوير عملياتها التشغيلية وحملاتها التسويقية لزيادة النمو والمبيعات.</p>
-                </div>
-                <a href="https://www.reoomsaudi.sa/" target="_blank" class="portfolio-link">
-                    زيارة المتجر المباشر <i class="fa-solid fa-arrow-left"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- قسم آراء العملاء المبني على النتائج والأرقام الموثوقة -->
-        <div class="section-title" id="results">
-            <h2>قصص نجاح وأرقام حقيقية من عملائنا</h2>
-            <p style="color: var(--text-muted);">شهادات مبنية على الأداء والنتائج الملموسة بعد تطوير المتاجر</p>
-        </div>
-
-        <div class="testimonials-grid">
-            <!-- التقييم 1 -->
-            <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-                <div>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text" itemprop="reviewBody">
-                        "بعد إعداد الـ CAPI وتفعيل حملات السلات المتروكة بدقة مع الأستاذ رمزي، انخفضت لدينا تكلفة الاستحواذ على الإعلانات بنسبة 30% وارتفعت نسبة استعادة العملاء بشكل ملحوظ."
-                    </p>
-                </div>
-                <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <img src="ramzy_galal_logo.png" alt="أحمد" class="author-avatar">
-                    <div class="author-info">
-                        <h4 itemprop="name">رمزي أحمد</h4>
-                        <span class="author-store">مؤسس متجر ريوم السعودية</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- التقييم 2 -->
-            <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-                <div>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text" itemprop="reviewBody">
-                        "نقلنا متجرنا لمنصة Shopify بتصميم احترافي وسريع، وخلال أول شهرين تضاعفت معدلات إتمام الطلبات بنسبة تجاوزت 45% بفضل تحسين تجربة المستخدم وربط بوابات الدفع بسلاسة."
-                    </p>
-                </div>
-                <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <img src="ramzy_galal_logo.png" alt="سلطان" class="author-avatar">
-                    <div class="author-info">
-                        <h4 itemprop="name">حمزة</h4>
-                        <span class="author-store">مدير متجر جلسات المنزل</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- التقييم 3 -->
-            <div class="testimonial-card" itemscope itemtype="https://schema.org/Review">
-                <div>
-                    <div class="stars">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="testimonial-text" itemprop="reviewBody">
-                        "الاستشارات الدقيقة وهندسة العمليات التي قام بها رمزي ساعدتنا في ترتيب العمليات الإدارية وتشغيل الحملات التسويقية بعائد استثماري (ROAS) ممتاز ومستدام."
-                    </p>
-                </div>
-                <div class="testimonial-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <img src="ramzy_galal_logo.png" alt="فيصل" class="author-avatar">
-                    <div class="author-info">
-                        <h4 itemprop="name">مقبل</h4>
-                        <span class="author-store">مالك متجر لينيوهوم</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ركائز الخدمات -->
-        <div class="section-title" id="services">
-            <h2>ركائز خدماتنا للنمو الرقمي</h2>
-            <p style="color: var(--text-muted);">حلول احترافية مصممة لنقل تجارتك إلى المستوى التالي</p>
-        </div>
-
         <div class="services-grid">
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-briefcase"></i></div>
-                <h3>1. تطوير الأعمال</h3>
-                <p>دراسة النمو، أتمتة العمليات، وبناء استراتيجيات منظمة لرفع الكفاءة التشغيلية وزيادة الأرباح.</p>
+                <h3><i class="fas fa-code" style="color: var(--primary);"></i> تصميم المتاجر</h3>
+                <p>بناء وتجهيز واجهات عصرية ومتجاوبة بالكامل لعلامتك التجارية على أفضل المنصات العالمية والمحلية.</p>
             </div>
-
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-shop"></i></div>
-                <h3>2. المتاجر الإلكترونية</h3>
-                <p>تأسيس وتصميم المتاجر الإلكترونية على كافة المنصات مع ربط خيارات الدفع الإلكتروني والخدمات اللوجستية.</p>
+                <h3><i class="fas fa-chart-line" style="color: var(--accent);"></i> تتبع وتحليل البيانات</h3>
+                <p>ربط شامل وأوتوماتيكي للـ Conversions API والموجزات الإعلانية لمراقبة أداء الحملات بدقة 100%.</p>
             </div>
-
             <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-bullhorn"></i></div>
-                <h3>3. التسويق الرقمي</h3>
-                <p>إدارة الإعلانات الممولة، تفعيل ربط البكسل و CAPI، وأتمتة حملات استعادة السلات المتروكة.</p>
+                <h3><i class="fas fa-link" style="color: var(--primary);"></i> ربط بوابات الدفع والشحن</h3>
+                <p>تكامل مثالي مع خدمات الدفع الآجل (تابي، تمارا) وبوابات الدفع المختلفة وشركات الشحن بسلاسة.</p>
             </div>
         </div>
+    </main>
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-title">
+                <div class="badge">شركاء النجاح</div>
+                <h2>ماذا يقول أصحاب الأعمال عن تجربتهم معنا؟</h2>
+            </div>
+            <div class="reviews-grid">
+                
+                <!-- التقييم الأول -->
+                <div class="review-card" itemscope itemtype="https://schema.org/Review">
+                    <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
+                        <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
+                    </div>
+                    <div>
+                        <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text" itemprop="reviewBody">
+                            "بعد إعداد تتبع الـ CAPI بالكامل وتفعيل حملات السلات المتروكة والأتمتة، انخفضت لدينا تكلفة الإعلانات بشكل ملحوظ وزادت مبيعاتنا خلال أول شهرين فقط. الشغل احترافي ومبني على الأرقام الحقيقية."
+                        </p>
+                    </div>
+                    <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <div class="author-avatar">ر</div>
+                        <div class="author-info">
+                            <h4 itemprop="name">إدارة التشغيل</h4>
+                            <p>متجر <a href="https://reoomsaudi.sa" target="_blank" rel="noopener">ريوم السعودية</a></p>
+                        </div>
+                    </div>
+                </div>
 
-        <!-- اختيار المنصة -->
-        <div class="section-title" id="platforms">
-            <h2>اختر المنصة المناسبة لمتجرك</h2>
+                <!-- التقييم الثاني -->
+                <div class="review-card" itemscope itemtype="https://schema.org/Review">
+                    <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
+                        <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
+                    </div>
+                    <div>
+                        <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text" itemprop="reviewBody">
+                            "تأسيس متجرنا على Shopify وتجهيز تجربة المستخدم السلسة ساعدنا جداً في استقبال الطلبات دون أي تعقيد تقني. المتابعة والدعم الفني مستمر حتى بعد تسليم المتجر."
+                        </p>
+                    </div>
+                    <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <div class="author-avatar">ج</div>
+                        <div class="author-info">
+                            <h4 itemprop="name">مؤسس المتجر</h4>
+                            <p>متجر جلسات المنزل (Shopify)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- التقييم الثالث -->
+                <div class="review-card" itemscope itemtype="https://schema.org/Review">
+                    <div itemprop="itemReviewed" itemscope itemtype="https://schema.org/Product">
+                        <meta itemprop="name" content="رمزي الجلال لخدمات المتاجر الإلكترونية" />
+                    </div>
+                    <div>
+                        <div class="review-stars" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <meta itemprop="ratingValue" content="5" /><meta itemprop="bestRating" content="5" />
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text" itemprop="reviewBody">
+                            "الواجهات والتعديلات البرمجية التي تمت على متجرنا جعلت التصفح سريعاً وجذاباً جداً للمستهلك، الربط التقني ببوابات الشحن والدفع تم بأعلى كفاءة وسرعة."
+                        </p>
+                    </div>
+                    <div class="review-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <div class="author-avatar">ل</div>
+                        <div class="author-info">
+                            <h4 itemprop="name">المدير التنفيذي</h4>
+                            <p>علامة لينيوهوم التجارية</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <div class="platforms-grid">
-            <div class="platform-card active" onclick="selectPlatform(this, 'سلة')">
-                <i class="fa-solid fa-basket-shopping" style="color: #10b981;"></i>
-                <h4>سلة (Salla)</h4>
-            </div>
-            <div class="platform-card" onclick="selectPlatform(this, 'زد')">
-                <i class="fa-solid fa-store" style="color: #8b5cf6;"></i>
-                <h4>زد (Zid)</h4>
-            </div>
-            <div class="platform-card" onclick="selectPlatform(this, 'Shopify')">
-                <i class="fa-brands fa-shopify" style="color: #95bf47;"></i>
-                <h4>Shopify</h4>
-            </div>
-            <div class="platform-card" onclick="selectPlatform(this, 'WordPress')">
-                <i class="fa-brands fa-wordpress" style="color: #21759b;"></i>
-                <h4>WordPress</h4>
-            </div>
-            <div class="platform-card" onclick="selectPlatform(this, 'OpenCart')">
-                <i class="fa-solid fa-cart-shopping" style="color: #239ab9;"></i>
-                <h4>OpenCart</h4>
-            </div>
-        </div>
-
-        <!-- تحديد الخيارات التفاعلية -->
-        <div class="builder-section" id="builder">
-            <div class="section-title" style="margin-bottom: 30px;">
-                <h2>⚡ حدد خيارات مشروعك بدقة</h2>
-                <p style="color: var(--text-muted);">انقر على الخدمات المطلوبة لتجهيز رسالة الاستشارة عبر الواتساب</p>
-            </div>
-
-            <div class="category-block">
-                <h4><i class="fa-solid fa-chart-pie"></i> خيارات تطوير الأعمال:</h4>
-                <div class="options-grid">
-                    <div class="option-btn" onclick="toggleOption(this)">دراسات نمو المشروعات والتوسع</div>
-                    <div class="option-btn" onclick="toggleOption(this)">أتمتة وتطوير العمليات الإدارية</div>
-                    <div class="option-btn" onclick="toggleOption(this)">بناء استراتيجية المبيعات</div>
-                    <div class="option-btn" onclick="toggleOption(this)">إدارة العلاقات وخدمة العملاء CRM</div>
-                </div>
-            </div>
-
-            <div class="category-block">
-                <h4><i class="fa-solid fa-cash-register"></i> خيارات المتاجر الإلكترونية:</h4>
-                <div class="options-grid">
-                    <div class="option-btn" onclick="toggleOption(this)">تأسيس وتصميم متجر جديد</div>
-                    <div class="option-btn" onclick="toggleOption(this)">تعديل وتخصيص قوالب المتجر</div>
-                    <div class="option-btn" onclick="toggleOption(this)">ربط بوابات الدفع (مدى، الفيزا، Apple Pay)</div>
-                    <div class="option-btn" onclick="toggleOption(this)">ربط الشحن والدفع الآجل (تابي وتمارا)</div>
-                </div>
-            </div>
-
-            <div class="category-block">
-                <h4><i class="fa-solid fa-rectangle-ad"></i> خيارات التسويق الرقمي:</h4>
-                <div class="options-grid">
-                    <div class="option-btn" onclick="toggleOption(this)">إعداد البكسل وربط CAPI التفاعلي</div>
-                    <div class="option-btn" onclick="toggleOption(this)">إدارة الحملات الإعلانية الممولة</div>
-                    <div class="option-btn" onclick="toggleOption(this)">أتمتة واستعادة السلات المتروكة</div>
-                    <div class="option-btn" onclick="toggleOption(this)">تحسين محركات البحث SEO للمتاجر</div>
-                </div>
-            </div>
-
-            <div class="summary-box">
-                <p id="selected-summary" style="color: var(--text-muted); font-size: 1.1rem;">المنصة المختارة للمتجر: <strong style="color:#60a5fa">سلة</strong></p>
-                <div style="margin-top: 25px;">
-                    <a id="whatsapp-link" href="https://wa.me/966500510823" target="_blank" class="btn btn-primary">
-                        <i class="fa-brands fa-whatsapp"></i> إرسال تفاصيل الطلب عبر الواتساب المباشر
-                    </a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- زر الواتساب العائم -->
-    <a href="https://wa.me/966500510823" target="_blank" class="floating-wa" title="تواصل عبر الواتساب">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- الفوتر -->
     <footer>
-        <p>موقع <strong>رمزي الجلال | حلول المتاجر وتطوير الأعمال</strong> &copy; 2026. جميع الحقوق محفوظة.</p>
+        <p>&copy; 2026 رمزي الجلال. جميع الحقوق محفوظة لجميع حلول التجارة الرقمية.</p>
     </footer>
 
-    <!-- السكريبت التفاعلي -->
-    <script>
-        let currentPlatform = "سلة";
-        const phoneNumber = "966500510823";
-
-        function selectPlatform(element, platformName) {
-            document.querySelectorAll('.platform-card').forEach(card => card.classList.remove('active'));
-            element.classList.add('active');
-            currentPlatform = platformName;
-            updateSummary();
-        }
-
-        function toggleOption(element) {
-            element.classList.toggle('selected');
-            updateSummary();
-        }
-
-        function updateSummary() {
-            const selectedOptions = document.querySelectorAll('.option-btn.selected');
-            const summaryText = document.getElementById('selected-summary');
-            const waLink = document.getElementById('whatsapp-link');
-            
-            let servicesList = [];
-            selectedOptions.forEach(btn => servicesList.push(btn.innerText));
-            
-            let summaryHTML = "المنصة المختارة للمتجر: <strong style='color:#60a5fa'>" + currentPlatform + "</strong>";
-            
-            if(servicesList.length > 0) {
-                summaryHTML += "<br>الخدمات المحددة: <strong style='color:#10b981'>" + servicesList.join("، ") + "</strong>";
-            }
-            
-            summaryText.innerHTML = summaryHTML;
-            
-            let textMsg = "مرحباً أستاذ رمزي، أرغب في الاستفسار عن خدماتك (منصة " + currentPlatform + ")";
-            if(servicesList.length > 0) {
-                textMsg += " مع الخدمات التالية: " + servicesList.join("، ");
-            }
-            
-            waLink.href = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(textMsg);
-        }
-
-        function toggleLang() {
-            alert("سيتم إطلاق النسخة الإنجليزية قريباً!");
-        }
-
-        updateSummary();
-    </script>
 </body>
 </html>
